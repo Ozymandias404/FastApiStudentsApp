@@ -17,3 +17,13 @@ class Student(StudentBase):
     class Config:
         orm_mode = True
 
+"""
+zdefiniować odpowiedź na get students
+{ 
+   data: …,
+   status: ….,
+   error: …
+}
+DTO - schema
+DAO - model
+"""

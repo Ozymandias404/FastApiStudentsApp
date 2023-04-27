@@ -42,9 +42,9 @@ def read_student(student_id: int, db: Session = Depends(get_db)):
 
 @app.put("/students/{student_id}", response_model=schemas.Student, status_code=status.HTTP_200_OK)
 def update_student(student_id: int, student: schemas.StudentCreate, db: Session = Depends(get_db)):
-    db_student = crud.get_student(db, student_id=student_id)
-    if db_student is None:
-        raise HTTPException(status_code=404, detail="Student not found")
+    db_student = crud.get_student(db, student_id=student_id) # przesunąć do crud
+    if db_student is None: # przesunąć do crud
+        raise HTTPException(status_code=404, detail="Student not found") # przesunąć do crud
     return crud.update_student(db, student_id=student_id, student=student)
 
 
@@ -54,3 +54,8 @@ def delete_student(student_id: int, db: Session = Depends(get_db)):
     if db_student is None:
         raise HTTPException(status_code=404, detail="Student not found")
     return crud.delete_student(db, student_id=student_id)
+
+
+"""
+Tu powinny być tylko mappery
+"""
