@@ -7,3 +7,4 @@ uvicorn[standard]
 pytest
 unittest2
 requests
+pytest-postgresql
