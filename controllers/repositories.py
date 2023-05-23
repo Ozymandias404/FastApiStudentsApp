@@ -1,6 +1,9 @@
+import time
+
 from db import models
 from controllers import schemas
 from sqlalchemy.orm import Session
+from db.database import engine, db_meta
 
 
 def get_first_student_with_id(db: Session, student_id: int):
@@ -34,3 +37,8 @@ def delete_student_with_id(db: Session, student_id: int):
     db.query(models.Student).filter(models.Student.id == student_id).delete()
     db.commit()
     return {"Message": f"Successfully deleted student with id: {student_id}"}
+
+
+def clear_data(db: Session):
+    db.query(models.Student).delete()
+    db.commit()
