@@ -8,7 +8,7 @@ from fastapi import Depends, FastAPI, HTTPException, status
 def get_student(db: Session, student_id: int):
     db_student = repositories.get_first_student_with_id(db, student_id=student_id)
     if db_student is None:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(status_code=404, detail="Student not found")
     return db_student
 
 
