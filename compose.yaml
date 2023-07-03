@@ -1,0 +1,27 @@
+services:
+  web:
+    build: .
+    ports:
+      - 80:80
+    networks:
+      - app-network
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+    links:
+      - postgres
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
+    ports:
+      - 5432:5432
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    name: app-network
+

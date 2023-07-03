@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 db_urls = {"prod": "postgresql+psycopg://postgres:mysecretpassword@localhost:5432/template1",
            "test": "postgresql+psycopg://postgres:mysecretpassword@localhost:5432/test"}
 
-SQLALCHEMY_DATABASE_URL = db_urls["test"]
+SQLALCHEMY_DATABASE_URL = db_urls["prod"]
 
 db_meta = MetaData()
 
